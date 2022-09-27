@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Quantitative Methods</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ludovic Vigneron" />
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/xaringanExtra-banner-0.0.1/banner.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-banner-0.0.1/banner.js"></script>
+    <script src="libs/xaringanExtra-progressBar-0.0.1/progress-bar.js"></script>
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.25/datatables.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Quantitative Methods
+]
+.subtitle[
+## Working Environnement and data base
+]
+.author[
+### Ludovic Vigneron
+]
+.institute[
+### University of Lille (IAE)
+]
+.date[
+### September 6th, 2022
+]
+
+---
+
+
+
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 120px;
+height: 156px;
+z-index: 0;
+background-image: url(csm_logo_lumen_noir_786a68a7c0.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div><script>document.addEventListener('DOMContentLoaded',function(){new xeBanner(JSON.parse('{"exclude":["inverse"],"position":"top"}'))})</script>
+<script>document.addEventListener('DOMContentLoaded',function(){new xeBanner(JSON.parse('{"left":"Working Environnement and data base - LV","exclude":["inverse"],"position":"bottom"}'))})</script><style>.xe__progress-bar__container {
+  bottom:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 5px;
+  background-color: #1c5253;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+
+
+
+
+
+
+# Morning program
+
+&lt;hr/&gt; 
+
+--
+
+1. Intalling Softwares 
+
+--
+
+2. R langage basis
+
+--
+
+3. WRDS data base
+
+--
+
+4. Extracting/importing data 
+
+
+---
+
+class: center,middle,inverse
+
+# Intalling Softwares 
+
+---
+
+class: middle
+
+## R langage
+
+R is a programing langage dedicated to statistics and data sciences. 
+
+* **easy to use** (simple synthax especially using the tidyverse)
+
+* **free** (that makes a huge difference with Stat, SAS, Eview, SPSS...) and multi-platform (windows, OS, Linux)
+
+* **evolutive**  (a very important community develop applications -free packages- and makes 'R base' evolve on a regular basis)
+
+* **a lot of information available** ([R journal](https://journal.r-project.org/), [R bigbook](https://www.bigbookofr.com/finance.html), [R-BLOGGERS](https://www.r-bloggers.com/), [Stack overflow](https://stackoverflow.com/), [freakonometrics](https://freakonometrics.hypotheses.org/), [MyEconTricks](https://myecontricks.netlify.app/)...)
+
+---
+
+class: middle
+
+## R langage
+
+You can download R at the following adress https://www.r-project.org/ .
+
+---
+
+class: middle
+
+## R Studio IDE
+
+* What is a *IDE* ? 
+
+It is just a *Interactif Developpement Environment*, a software that helps to deal with application creation using one or more programing language. 
+
+R Studio is dedicated to data analysis. It provides tools to get data, to shape data (data wrangling), to draw graphs, to do statistics (test, regression models, other modeling...) and to produce reports (presentations, text documents, interactive product...).
+
+Actualy, R studio is becoming posit. It will give more space to other programing langage (like Pyhton, Julia,C++...).
+
+---
+
+class: middle
+
+## R Studio IDE
+
+You can download R Studio at the following adress https://www.rstudio.com/products/rstudio/download/ .
+
+---
+
+class: middle
+
+## Video installation guide
+
+To help you to install R and R Studio IDE, I invite you to watch the follow trought video (duration about 5 minutes) here after.
+
+https://youtu.be/hT2tSvj7d1A
+
+---
+
+class: middle
+
+## Presentation of the R Studio environement
+
+You will find a short presentation of the R Studio in the following video (duration about 15 minutes).
+
+https://youtu.be/fB5QlyjWqK0
+
+---
+
+class: middle
+
+## Presentation of the R Studio environement
+
+
+&lt;img src="env_1_a.jpg" alt="drawing" width="1800" height="500" /&gt;
+
+
+---
+
+class: middle
+
+## Presentation of the R Studio environement
+
+Four panel layouts
+
+* **Source** : where you write your program and save it to make your analysis reproductible.
+
+* **Console** : where you interact with R.
+
+* **Environment** : where you find the different objects that you have created during your session. 
+
+* **Files**, **Plots**, **Packages**, **Help**, **Viewer**, **Presentation** : you find the files in your working directory, you can view the graph made, the list of your installed packages, some descriptions of fonctions for which you have asked for help...
+
+---
+
+class: middle
+
+## Presentation of the R Studio environement
+
+It is important to create a new project when you start a data analysis.
+
+*file -&gt; new project* 
+
+Indicate where to put the directory associated with your project and name it.
+
+If you have some doubt on your actual working directory type **getwd()** in the console space.
+
+In order to make your work reproductible, you must at least use a script file.
+
+*file -&gt; new file*
+
+*Warning* : it is not because you have saved your project (.Rproj) that your data and your programs (.R,.Rmd...) are also saved (.csv,.xlSx...). **You have to save them independly!!**
+
+---
+
+class: center,middle,inverse
+
+# R langage basis
+
+---
+
+class: middle
+
+## The operators
+
+* math : +, -, *,  /, %/%, 
+         %*%, t(), ^, log(), exp()...
+
+* assignation : &lt;- = -&gt;
+
+* logical: &lt; &gt; &lt;= &gt;= == != %in%
+
+---
+
+class: middle
+
+## The data types
+
+* Character
+
+* numeric :
+
+ _ logical (0 FALSE 1 TRUE)
+ 
+ _ factor 
+ 
+ _ integer
+ 
+ _ double
+ 
+ _ etc...
+ 
+---
+
+class: middle
+
+## The data objects
+
+* vector
+
+* matrix
+
+* array
+
+* list
+
+* data frame 
+
+---
+
+class: middle
+
+## The functions
+
+There are commands that transform or produce new elements from a R object or a part of a R object.
+
+--
+
+There are shaped as follow : **name_of_the_function(main arguments, options)**
+
+--
+
+sum(x,na.rm==TRUE) make the sum of the element of vector named x. The option na.rm==TRUE excludes from the sum the NA values.
+
+--
+
+
+```r
+x&lt;-c(1:6,NA,c(5:9)-2)
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6 NA  3  4  5  6  7
+```
+
+```r
+sum(x)
+```
+
+```
+## [1] NA
+```
+
+```r
+sum(x,na.rm=TRUE)
+```
+
+```
+## [1] 46
+```
+
+---
+
+class: middle
+
+## Find some help about a function
+
+Use the help window or just put ? in front the function name.
+
+
+```r
+?t.test()
+```
+
+
+---
+
+class: middle
+
+## The syntax
+
+R base has a stacked syntax.
+
+
+
+```r
+paste(mean(x[x&lt;5],na.rm=TRUE),'on average')
+```
+
+```
+## [1] "2.83333333333333 on average"
+```
+
+---
+
+class: middle
+
+## The syntax
+
+R base has a stacked syntax.
+
+
+```r
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6 NA  3  4  5  6  7
+```
+
+```r
+x&lt;5
+```
+
+```
+##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE    NA  TRUE  TRUE FALSE FALSE FALSE
+```
+
+```r
+x[x&lt;5]
+```
+
+```
+## [1]  1  2  3  4 NA  3  4
+```
+
+```r
+mean(x[x&lt;5],na.rm=TRUE)
+```
+
+```
+## [1] 2.833333
+```
+
+```r
+paste(mean(x[x&lt;5],na.rm=TRUE),'on average')
+```
+
+```
+## [1] "2.83333333333333 on average"
+```
+
+---
+
+class: middle
+
+## Intall and use packages
+
+With R you have access to a wide panel of functions developped by the community. You can download packages of new functions from online repositories (like the CRAN, or github...).
+
+Let's download the tidyverse package which includes a lot of usefull complementary fonctionality.
+
+
+```r
+install.packages("tidyverse")
+```
+
+---
+
+class: middle
+
+## Intall and use packages
+
+Once a package downloaded, you have to call it in your environment in order to use the included functions.
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ────────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
+## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+## ✔ readr   2.1.2      ✔ forcats 0.5.2 
+## ── Conflicts ───────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+---
+
+class: middle
+
+## Intall and use packages
+
+The tidyverse provides (among many other things) a usefull programing operator the simplify R syntax : the pipe operator %&gt;% (keyboard shortcut 'ctrl' 'shift' 'm').
+
+
+
+```r
+x&lt;-1:5
+y&lt;-8:4
+data.frame(x,y) %&gt;% summarise(m_x=mean(x),m_y=mean(y))
+```
+
+```
+##   m_x m_y
+## 1   3   6
+```
+
+---
+
+class: middle
+
+## Intall and use packages
+
+It is simpler than :
+
+
+```r
+lapply(data.frame(x,y), mean)
+```
+
+```
+## $x
+## [1] 3
+## 
+## $y
+## [1] 6
+```
+--
+
+
+```r
+sapply(data.frame(x,y), mean)
+```
+
+```
+## x y 
+## 3 6
+```
+
+--
+
+
+```r
+apply(data.frame(x,y),2, mean)
+```
+
+```
+## x y 
+## 3 6
+```
+
+---
+
+class: middle
+
+
+## The home made functions
+
+You can create you own function using the following syntax.
+
+**function_name&lt;-function(arguements,...){**
+
+**one program that do the job!!**
+
+**}**
+
+---
+
+class: middle
+
+## The home made functions
+
+Let's build a function that compute the actual value of a given amount of money in *n* compounding periods when the opportinity interest rate is *i*.
+
+---
+
+class: middle
+
+## The home made functions
+
+Let's do the math.
+
+--
+
+`$$Vf=VA\times{(1+i)^{n}}$$`
+
+--
+
+`$$VA=\frac{VF}{(1+i)^{n}}$$`
+---
+
+class: middle
+
+## The home made functions
+
+Let's do the program.
+
+--
+
+```r
+val_act&lt;-function(vf,i,d){
+  va&lt;-vf*(1/(1+i)^d)
+  return(va)
+}
+```
+
+--
+
+Let's test it.
+
+--
+
+
+```r
+val_act(1159.2741,0.03,5)
+```
+
+```
+## [1] 1000
+```
+
+---
+
+class: middle
+
+## The home made functions
+
+Create a function that computes the annual interest rate allowing to obtain the final value from the initial one in n periods. (5 minutes)
+
+
+---
+
+class: middle
+
+## The home made functions
+
+Let's do the math.
+
+--
+
+`$$Vf=VA\times{(1+i)^{n}}$$`
+--
+`$$\frac{Vf}{VA}=(1+i)^{n}$$`
+--
+`$$\left(\frac{Vf}{VA}\right)^{1/n}=1+i$$`
+--
+`$$i=\left(\frac{Vf}{VA}\right)^{1/n}-1$$`
+---
+
+class: middle
+
+## The home made functions
+
+Let's do the programing.
+
+--
+
+
+```r
+interet&lt;-function(vf,va,n){
+  i&lt;-(vf/va)^(1/n)-1
+  return(i)
+}
+```
+
+--
+
+Let's test it.
+
+--
+
+
+```r
+interet(1159.2741,1000,5)
+```
+
+```
+## [1] 0.03
+```
+
+---
+
+class: middle
+
+## More on R langage
+
+You can watch (later) a 40 minutes video that presentes more extensively the points that we have just review. You can find it at the followning adress:
+
+https://youtu.be/hGffaVR4Dtk
+
+---
+
+class: middle,center
+
+*short break*
+
+&lt;img src="Image_1.jpg" alt="drawing" width="500"/&gt;
+
+
+---
+
+class: center,middle,inverse
+
+#  WRDS data base
+
+---
+
+class: middle
+
+## Access to WRDS
+
+You start from your Student ENT. You select "toutes les applications" and on the part dedicated to 'Bibliothèque' you click on 'Ressources électronques'.
+
+ent -&gt; toutes les applications -&gt; Bibliothèque -&gt; ressources électroniques
+
+Once the 'ressources électroniques' page opens go to 'Accueil' and section the 'gestion' discipline. You can find the link with WRDS at the bottom of the current page. 
+
+Accueil -&gt; gestion -&gt; wrds
+
+---
+
+class: middle
+
+## Access to WRDS
+
+.center[
+&lt;img src="Capture_wrds_intro_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Access to WRDS
+
+.center[
+&lt;img src="Capture_wrds_intro_2_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Access to WRDS
+
+.center[
+&lt;img src="Capture_wrds_intro_3_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Access to WRDS
+
+.center[
+&lt;img src="Capture_wrds_intro_4_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Access to WRDS
+
+.center[
+&lt;img src="Capture_wrds_intro_5_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Access to WRDS
+
+You only have access to ressources marked by the plain blue links.
+
+If you spend to much time without doing anything, you will be disconnected.
+
+Your access is can be activated using the email link during a day long.
+
+---
+
+class: middle
+
+## What WRDS is? 
+
+It is a data base aggregator provided by the Wharton school of business of the university of Pennsylvania.
+
+It allows to access multiple ressources in one place using a central data extraction interface.
+
+It also provides some data treatement services (compute event studies, efficient portfolio, Beta...).
+
+---
+
+class: middle
+
+## What the main ressources available are ?
+
+
+* Compustat : accounting data about listed firms
+
+* CRPS : share prices
+
+* Thomson/Refinitiv (WRDS-Reuter Dealscan) : syndicated loan deals
+
+* Trace : bonds
+
+etc...
+
+---
+
+class: middle
+
+## What the main ressources available are ?
+
+Each database has it own indivuals' (company or security or CEO...) identifier. 
+
+One of the first difficulties that you will have to deal with using those data base will be to manage those identifiers in order to merge the data accuratly. 
+
+WRDS helps providing tables with merging keys (most of times).
+
+---
+
+class: center,middle,inverse
+
+# Extracting/importing data
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+The Center for Research in Security Prices, LLC (CRSP) maintains the most comprehensive collection of security price, return, and volume data for the NYSE, AMEX and NASDAQ stock markets. 
+
+It is the gold standard data base on stocks in empirical finance (in US).
+
+Most of the more important research papers published in top scientific journals (JF,JFE,JFQA...) have been produced using CRSP.
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_crps_1_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_crps_2_v1.png" alt="drawing" width="500"/&gt;
+]
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_crps_3_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_crps_4_v1.png" alt="drawing" width="500"/&gt;
+]
+
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_crps_5_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_crps_6_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+
+Mission 1: 
+
+Find the ticker of a stock of your choice and put it in the chat window (company name followed by the corresponding actual ticker).
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+
+Let's take Google. 
+
+A quick research on it provides us its ticker.
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_1_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_2_v1.png" alt="drawing" width="500"/&gt;
+]
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_3_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_4_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_5_v1.png" alt="drawing" width="500"/&gt;
+]
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_6_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+.center[
+&lt;img src="Capture_goo_7_v1.png" alt="drawing" width="500"/&gt;
+]
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Copy the downloaded file in your working directory. 
+
+Once done import your data in R.
+
+
+
+```r
+google &lt;- read_csv("google.csv")
+```
+
+```
+## Warning: One or more parsing issues, see `problems()` for details
+```
+
+```
+## Rows: 4436 Columns: 63
+## ── Column specification ───────────────────────────────────────────────────────────
+## Delimiter: ","
+## chr (13): NCUSIP, TICKER, COMNAM, SHRCLS, TSYMBOL, PRIMEXCH, TRDSTAT, SECSTAT, ...
+## dbl (39): PERMNO, date, NAMEENDT, SHRCD, EXCHCD, SICCD, NAICS, PERMCO, ISSUNO, ...
+## lgl (11): DCLRDT, DLPDT, NEXTDT, PAYDT, RCRDDT, DISTCD, DIVAMT, FACPR, FACSHR, ...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+let's see what do we have. head(google)
+
+<div id="htmlwidget-58e33a67a20b82242884" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-58e33a67a20b82242884">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6"],[90319,90319,90319,90319,90319,90319],[20040819,20040820,20040823,20040824,20040825,20040826],[20050818,null,null,null,null,null],[11,11,11,11,11,11],[3,3,3,3,3,3],[7375,7375,7375,7375,7375,7375],["38259P50","38259P50","38259P50","38259P50","38259P50","38259P50"],["GOOG","GOOG","GOOG","GOOG","GOOG","GOOG"],["GOOGLE INC","GOOGLE INC","GOOGLE INC","GOOGLE INC","GOOGLE INC","GOOGLE INC"],["A","A","A","A","A","A"],["GOOG","GOOG","GOOG","GOOG","GOOG","GOOG"],[514191,514191,514191,514191,514191,514191],["Q","Q","Q","Q","Q","Q"],["A","A","A","A","A","A"],["R","R","R","R","R","R"],[45483,45483,45483,45483,45483,45483],[44290,44290,44290,44290,44290,44290],[3,3,3,3,3,3],[7375,7375,7375,7375,7375,7375],["02079K30","02079K30","02079K30","02079K30","02079K30","02079K30"],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[0,0,null,null,0,null],[73,73,73,73,73,73],[737,737,737,737,737,737],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[20040929,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[1,1,null,null,1,null],[2,2,null,null,2,null],[90,88,null,null,87,null],[9,9,null,null,9,null],[95.96,100.5,109.05,103.57,103.88,104.66],[104.06,109.08,113.48,111.6,108,107.95],[100.335,108.31,109.4,104.87,106,107.91],[22357173,11445498,9144922,7646024,4603910,3553568],["C","0.079484","0.010064","-0.041408","0.010775","0.018019"],[100.37,108.31,109.4,104.95,105.83,107.7],[100.36,108.32,109.43,105,105.9,107.78],[33603,33603,33603,33603,33603,33603],[1.9969,1.9969,1.9969,1.9969,1.9969,1.9969],[1,1,1,1,1,1],[100.01,101.48,110.84,111.3,104.96,105.11],[70453,40183,36017,29879,16282,12928],["C","0.079484","0.010064","-0.041408","0.010775","0.018019"],[-0.003139,0.008171,-0.003444,0.00058,0.008004,-0.00035],[-0.003158,0.008165,-0.003525,0.000568,0.007941,-0.000371],[-0.001599,0.011319,-0.002831,0.000577,0.007774,-0.001207],[-0.001617,0.011284,-0.002875,0.000562,0.007661,-0.001232],[-0.003598,0.006525,-0.002431,0.000465,0.008,0.000118]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>PERMNO<\/th>\n      <th>date<\/th>\n      <th>NAMEENDT<\/th>\n      <th>SHRCD<\/th>\n      <th>EXCHCD<\/th>\n      <th>SICCD<\/th>\n      <th>NCUSIP<\/th>\n      <th>TICKER<\/th>\n      <th>COMNAM<\/th>\n      <th>SHRCLS<\/th>\n      <th>TSYMBOL<\/th>\n      <th>NAICS<\/th>\n      <th>PRIMEXCH<\/th>\n      <th>TRDSTAT<\/th>\n      <th>SECSTAT<\/th>\n      <th>PERMCO<\/th>\n      <th>ISSUNO<\/th>\n      <th>HEXCD<\/th>\n      <th>HSICCD<\/th>\n      <th>CUSIP<\/th>\n      <th>DCLRDT<\/th>\n      <th>DLAMT<\/th>\n      <th>DLPDT<\/th>\n      <th>DLSTCD<\/th>\n      <th>NEXTDT<\/th>\n      <th>PAYDT<\/th>\n      <th>RCRDDT<\/th>\n      <th>SHRFLG<\/th>\n      <th>HSICMG<\/th>\n      <th>HSICIG<\/th>\n      <th>DISTCD<\/th>\n      <th>DIVAMT<\/th>\n      <th>FACPR<\/th>\n      <th>FACSHR<\/th>\n      <th>ACPERM<\/th>\n      <th>ACCOMP<\/th>\n      <th>SHRENDDT<\/th>\n      <th>NWPERM<\/th>\n      <th>DLRETX<\/th>\n      <th>DLPRC<\/th>\n      <th>DLRET<\/th>\n      <th>TRTSCD<\/th>\n      <th>NMSIND<\/th>\n      <th>MMCNT<\/th>\n      <th>NSDINX<\/th>\n      <th>BIDLO<\/th>\n      <th>ASKHI<\/th>\n      <th>PRC<\/th>\n      <th>VOL<\/th>\n      <th>RET<\/th>\n      <th>BID<\/th>\n      <th>ASK<\/th>\n      <th>SHROUT<\/th>\n      <th>CFACPR<\/th>\n      <th>CFACSHR<\/th>\n      <th>OPENPRC<\/th>\n      <th>NUMTRD<\/th>\n      <th>RETX<\/th>\n      <th>vwretd<\/th>\n      <th>vwretx<\/th>\n      <th>ewretd<\/th>\n      <th>ewretx<\/th>\n      <th>sprtrn<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,12,16,17,18,19,22,24,28,29,30,37,38,40,42,43,44,45,46,47,48,49,51,52,53,54,55,56,57,59,60,61,62,63]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+
+
+```r
+unique(google$PERMNO)
+```
+
+```
+## [1] 90319
+```
+
+```r
+unique(google$PERMCO)
+```
+
+```
+## [1] 45483
+```
+
+```r
+unique(google$TICKER)
+```
+
+```
+## [1] "GOOG"  "GOOGL"
+```
+
+```r
+unique(google$CUSIP)
+```
+
+```
+## [1] "02079K30"
+```
+
+```r
+unique(google$COMNAM)
+```
+
+```
+## [1] "GOOGLE INC"   "ALPHABET INC"
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+PERMNO (sercurity) and PERMCO (company) are unique identifier given once by crsp respectivily to a security and a company they never change and are never reaffected.
+
+There is no survivor biais in CRSP.
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Put the date variable on a date format.
+
+
+```r
+str(google$date)
+```
+
+```
+##  num [1:4436] 2e+07 2e+07 2e+07 2e+07 2e+07 ...
+```
+
+
+---
+
+class: middle
+
+
+## Extracting data from CRSP
+
+You have to install the lubridate package to manage easily date format variables.
+
+
+```r
+install.packages(lubridate)
+```
+
+Once the new package installed, call it in your working environment.
+
+
+```r
+library(lubridate)
+```
+
+```
+## 
+## Attachement du package : 'lubridate'
+```
+
+```
+## Les objets suivants sont masqués depuis 'package:base':
+## 
+##     date, intersect, setdiff, union
+```
+
+---
+
+class: middle
+
+
+## Extracting data from CRSP
+
+So you can use ymd() function to format the date variable.
+
+
+```r
+google$date&lt;-ymd(google$date)
+```
+
+
+
+```r
+str(google$date)
+```
+
+```
+##  Date[1:4436], format: "2004-08-19" "2004-08-20" "2004-08-23" "2004-08-24" "2004-08-25" ...
+```
+
+
+---
+
+class: middle
+
+
+## Extracting data from CRSP
+
+
+let's see what do we have now. head(google)
+
+<div id="htmlwidget-97e06577b573e4b75ec1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-97e06577b573e4b75ec1">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6"],[90319,90319,90319,90319,90319,90319],["2004-08-19","2004-08-20","2004-08-23","2004-08-24","2004-08-25","2004-08-26"],[20050818,null,null,null,null,null],[11,11,11,11,11,11],[3,3,3,3,3,3],[7375,7375,7375,7375,7375,7375],["38259P50","38259P50","38259P50","38259P50","38259P50","38259P50"],["GOOG","GOOG","GOOG","GOOG","GOOG","GOOG"],["GOOGLE INC","GOOGLE INC","GOOGLE INC","GOOGLE INC","GOOGLE INC","GOOGLE INC"],["A","A","A","A","A","A"],["GOOG","GOOG","GOOG","GOOG","GOOG","GOOG"],[514191,514191,514191,514191,514191,514191],["Q","Q","Q","Q","Q","Q"],["A","A","A","A","A","A"],["R","R","R","R","R","R"],[45483,45483,45483,45483,45483,45483],[44290,44290,44290,44290,44290,44290],[3,3,3,3,3,3],[7375,7375,7375,7375,7375,7375],["02079K30","02079K30","02079K30","02079K30","02079K30","02079K30"],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[0,0,null,null,0,null],[73,73,73,73,73,73],[737,737,737,737,737,737],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[20040929,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],[1,1,null,null,1,null],[2,2,null,null,2,null],[90,88,null,null,87,null],[9,9,null,null,9,null],[95.96,100.5,109.05,103.57,103.88,104.66],[104.06,109.08,113.48,111.6,108,107.95],[100.335,108.31,109.4,104.87,106,107.91],[22357173,11445498,9144922,7646024,4603910,3553568],["C","0.079484","0.010064","-0.041408","0.010775","0.018019"],[100.37,108.31,109.4,104.95,105.83,107.7],[100.36,108.32,109.43,105,105.9,107.78],[33603,33603,33603,33603,33603,33603],[1.9969,1.9969,1.9969,1.9969,1.9969,1.9969],[1,1,1,1,1,1],[100.01,101.48,110.84,111.3,104.96,105.11],[70453,40183,36017,29879,16282,12928],["C","0.079484","0.010064","-0.041408","0.010775","0.018019"],[-0.003139,0.008171,-0.003444,0.00058,0.008004,-0.00035],[-0.003158,0.008165,-0.003525,0.000568,0.007941,-0.000371],[-0.001599,0.011319,-0.002831,0.000577,0.007774,-0.001207],[-0.001617,0.011284,-0.002875,0.000562,0.007661,-0.001232],[-0.003598,0.006525,-0.002431,0.000465,0.008,0.000118]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>PERMNO<\/th>\n      <th>date<\/th>\n      <th>NAMEENDT<\/th>\n      <th>SHRCD<\/th>\n      <th>EXCHCD<\/th>\n      <th>SICCD<\/th>\n      <th>NCUSIP<\/th>\n      <th>TICKER<\/th>\n      <th>COMNAM<\/th>\n      <th>SHRCLS<\/th>\n      <th>TSYMBOL<\/th>\n      <th>NAICS<\/th>\n      <th>PRIMEXCH<\/th>\n      <th>TRDSTAT<\/th>\n      <th>SECSTAT<\/th>\n      <th>PERMCO<\/th>\n      <th>ISSUNO<\/th>\n      <th>HEXCD<\/th>\n      <th>HSICCD<\/th>\n      <th>CUSIP<\/th>\n      <th>DCLRDT<\/th>\n      <th>DLAMT<\/th>\n      <th>DLPDT<\/th>\n      <th>DLSTCD<\/th>\n      <th>NEXTDT<\/th>\n      <th>PAYDT<\/th>\n      <th>RCRDDT<\/th>\n      <th>SHRFLG<\/th>\n      <th>HSICMG<\/th>\n      <th>HSICIG<\/th>\n      <th>DISTCD<\/th>\n      <th>DIVAMT<\/th>\n      <th>FACPR<\/th>\n      <th>FACSHR<\/th>\n      <th>ACPERM<\/th>\n      <th>ACCOMP<\/th>\n      <th>SHRENDDT<\/th>\n      <th>NWPERM<\/th>\n      <th>DLRETX<\/th>\n      <th>DLPRC<\/th>\n      <th>DLRET<\/th>\n      <th>TRTSCD<\/th>\n      <th>NMSIND<\/th>\n      <th>MMCNT<\/th>\n      <th>NSDINX<\/th>\n      <th>BIDLO<\/th>\n      <th>ASKHI<\/th>\n      <th>PRC<\/th>\n      <th>VOL<\/th>\n      <th>RET<\/th>\n      <th>BID<\/th>\n      <th>ASK<\/th>\n      <th>SHROUT<\/th>\n      <th>CFACPR<\/th>\n      <th>CFACSHR<\/th>\n      <th>OPENPRC<\/th>\n      <th>NUMTRD<\/th>\n      <th>RETX<\/th>\n      <th>vwretd<\/th>\n      <th>vwretx<\/th>\n      <th>ewretd<\/th>\n      <th>ewretx<\/th>\n      <th>sprtrn<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,12,16,17,18,19,22,24,28,29,30,37,38,40,42,43,44,45,46,47,48,49,51,52,53,54,55,56,57,59,60,61,62,63]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let's check if we have duplicated observations.
+
+
+```r
+google&lt;-google %&gt;% arrange(PERMNO,date) %&gt;% 
+  group_by(PERMNO,date) %&gt;% 
+  mutate(dup=n()) %&gt;% ungroup()
+table(google$dup)
+```
+
+```
+## 
+##    1 
+## 4436
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+There is no duplicated observations. We can drop the dup variable.
+
+
+```r
+google &lt;- google %&gt;% select(-dup)
+```
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+There is too much information in the actual data base. Let reduce it to the ones we need.
+
+
+```r
+google&lt;-google %&gt;% select(PERMNO,COMNAM,date,PRC,RET,RETX,DIVAMT,DISTCD,
+                          DCLRDT,RCRDDT,PAYDT)
+```
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+When did google start to be listed?
+
+--
+
+
+```r
+min(google$date)
+```
+
+```
+## [1] "2004-08-19"
+```
+
+Created in september 1998.
+
+--
+
+Did Google (Alphabet) pay some dividends since its listing? 
+
+--
+
+
+```r
+unique(google$DIVAMT)
+```
+
+```
+## [1] NA
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+No dividence, we can also drop the related information.
+
+
+```r
+google&lt;-google %&gt;% select(PERMNO,COMNAM,date,PRC,RET,RETX)
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let's check if RET and RETX are always equal.
+
+--
+
+
+```r
+sum(google$RET==google$RETX)
+```
+
+```
+## [1] 4436
+```
+
+We can drop RETX.
+
+
+```r
+google&lt;-google %&gt;% select(-RETX)
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+How are returns established in CRSP?
+
+--
+
+Simple return
+
+`$$r_{t} = \frac{P_{1}-P_{0}}{P_{0}}=\frac{P_{1}}{P_{0}}-1$$`
+
+--
+
+
+```r
+google$PRC[2]/google$PRC[1]-1
+```
+
+```
+## [1] 0.07948373
+```
+
+```r
+google$RET[2]
+```
+
+```
+## [1] "0.079484"
+```
+
+CRPS provides simple retrurns.
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Returns (RET) are in character format. Lets transform the variable to make it  numeric.
+
+
+```r
+google$RET[1:10]
+```
+
+```
+##  [1] "C"         "0.079484"  "0.010064"  "-0.041408" "0.010775"  "0.018019" 
+##  [7] "-0.016310" "-0.039001" "0.003529"  "-0.020709"
+```
+
+```r
+google$RET&lt;-as.numeric(google$RET)
+```
+
+```
+## Warning: NAs introduced by coercion
+```
+
+```r
+google$RET[1:10]
+```
+
+```
+##  [1]        NA  0.079484  0.010064 -0.041408  0.010775  0.018019 -0.016310
+##  [8] -0.039001  0.003529 -0.020709
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let compute our own simple returns for the entier data base and compare with the precomputed returns
+
+
+```r
+google &lt;- google %&gt;% arrange(date) %&gt;% 
+  mutate(ret_s=round(PRC/lag(PRC)-1,digits=6),
+         test=RET==ret_s)
+google
+```
+
+```
+## # A tibble: 4,436 × 7
+##    PERMNO COMNAM     date         PRC      RET    ret_s test 
+##     &lt;dbl&gt; &lt;chr&gt;      &lt;date&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;
+##  1  90319 GOOGLE INC 2004-08-19  100. NA       NA       NA   
+##  2  90319 GOOGLE INC 2004-08-20  108.  0.0795   0.0795  TRUE 
+##  3  90319 GOOGLE INC 2004-08-23  109.  0.0101   0.0101  TRUE 
+##  4  90319 GOOGLE INC 2004-08-24  105. -0.0414  -0.0414  TRUE 
+##  5  90319 GOOGLE INC 2004-08-25  106   0.0108   0.0108  TRUE 
+##  6  90319 GOOGLE INC 2004-08-26  108.  0.0180   0.0180  TRUE 
+##  7  90319 GOOGLE INC 2004-08-27  106. -0.0163  -0.0163  TRUE 
+##  8  90319 GOOGLE INC 2004-08-30  102. -0.0390  -0.0390  TRUE 
+##  9  90319 GOOGLE INC 2004-08-31  102.  0.00353  0.00353 TRUE 
+## 10  90319 GOOGLE INC 2004-09-01  100. -0.0207  -0.0207  TRUE 
+## # … with 4,426 more rows
+```
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let see if the two variables always match.
+
+--
+
+
+```r
+sum(google$test,na.rm=TRUE)
+```
+
+```
+## [1] 4408
+```
+
+It is not the case. 
+
+--
+
+
+```r
+google %&gt;% filter(test==FALSE)
+```
+
+```
+## # A tibble: 27 × 7
+##    PERMNO COMNAM     date         PRC       RET     ret_s test 
+##     &lt;dbl&gt; &lt;chr&gt;      &lt;date&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;lgl&gt;
+##  1  90319 GOOGLE INC 2004-10-21  149.  0.0633    0.0633   FALSE
+##  2  90319 GOOGLE INC 2005-01-11  194. -0.00779  -0.00779  FALSE
+##  3  90319 GOOGLE INC 2005-02-01  192. -0.0190   -0.0190   FALSE
+##  4  90319 GOOGLE INC 2005-02-16  198.  0.0163    0.0163   FALSE
+##  5  90319 GOOGLE INC 2005-10-28  358.  0.0145    0.0145   FALSE
+##  6  90319 GOOGLE INC 2006-12-04  485.  0.00842   0.00842  FALSE
+##  7  90319 GOOGLE INC 2007-04-13  466. -0.00235  -0.00235  FALSE
+##  8  90319 GOOGLE INC 2007-11-19  626. -0.0123   -0.0123   FALSE
+##  9  90319 GOOGLE INC 2008-07-28  477. -0.0302   -0.0302   FALSE
+## 10  90319 GOOGLE INC 2008-10-31  359. -0.000918 -0.000917 FALSE
+## # … with 17 more rows
+```
+
+It is just marginal rounding problems.
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let consider the continuous returns starting with some math.
+
+`$$vf=va.e^{r.n}$$`
+`$$\frac{vf}{va}=e^{r.n}$$`
+
+`$$ln\left(\frac{vf}{va}\right)=ln(e^{r.n})$$`
+
+`$$r.n=ln\left(\frac{vf}{va}\right)$$`
+
+`$$r=\frac{1}{n}.ln\left(\frac{vf}{va}\right)$$`
+
+here we just consider one period (so n=1).
+
+`$$r_{t} = \ln(\frac{P_{1}}{P_{0}})$$`
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let compute the continuous daily returns for Google.
+
+
+```r
+google&lt;-google %&gt;% mutate(ret_c=log(PRC/lag(PRC)))
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let compute the final value after one period using continuous returns.
+
+--
+
+
+```r
+google$PRC[1]*exp(google$ret_c[2])
+```
+
+```
+## [1] 108.31
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let consider now multiperiods returns.
+
+Compute the return between date 1 **[2004-08-19]** and date 4 **[2004-08-24]**.
+
+
+```r
+google$PRC[1]
+```
+
+```
+## [1] 100.335
+```
+
+```r
+google$PRC[4]
+```
+
+```
+## [1] 104.87
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let consider now multiperiods returns.
+
+--
+
+simple return
+
+
+```r
+google$PRC[4]/google$PRC[1]-1
+```
+
+```
+## [1] 0.04519858
+```
+
+```r
+google$PRC[1]*(1+(google$PRC[4]/google$PRC[1]-1))
+```
+
+```
+## [1] 104.87
+```
+
+--
+
+continuous returns
+
+
+```r
+log(google$PRC[4]/google$PRC[1])
+```
+
+```
+## [1] 0.0442069
+```
+
+```r
+google$PRC[1]*exp(log(google$PRC[4]/google$PRC[1]))
+```
+
+```
+## [1] 104.87
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+simple returns intra period
+
+
+```r
+google$PRC[1]*(1+google$ret_s[2])*(1+google$ret_s[3])*(1+google$ret_s[4])
+```
+
+```
+## [1] 104.87
+```
+
+using cumprod()
+
+
+```r
+google$PRC[1]*cumprod(1+google$ret_s[2:4])[3]
+```
+
+```
+## [1] 104.87
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+simple returns intra period
+
+using geometric average
+
+
+```r
+google$PRC[1]*(prod(1+google$ret_s[2:4])^(1/3))^3
+```
+
+```
+## [1] 104.87
+```
+
+using a home made function for geometric average.
+
+--
+
+
+```r
+geomet_moy&lt;-function(x){
+  y&lt;-prod(1+x)^(1/length(x))
+  return(y)
+}
+```
+
+
+```r
+google$PRC[1]*geomet_moy(google$ret_s[2:4])^3
+```
+
+```
+## [1] 104.87
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+continuous returns intra period
+
+
+```r
+google$PRC[1]*exp(sum(google$ret_c[2:4]))
+```
+
+```
+## [1] 104.87
+```
+
+```r
+google$PRC[1]*exp(mean(google$ret_c[2:4])*3)
+```
+
+```
+## [1] 104.87
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Are Google return normaly distributed?
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let see it drawing a histogram.
+
+---
+
+class: middle, center
+
+
+```r
+hist(google$ret_c,nclass = 100,
+     main="histogram of google stock return",xlab='return')
+abline(v=mean(google$ret_c,na.rm=TRUE),col='red')
+```
+
+---
+
+class: middle, center
+
+![](pres_1_v1_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+To be sure, let perform a Shapiro-Wilk test.
+
+
+```r
+shapiro.test(google$ret_c)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  google$ret_c
+## W = 0.74424, p-value &lt; 2.2e-16
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+We also can examine the normality with a quantile-quantile plot (QQplot).
+
+---
+
+class: middle,center
+
+
+```r
+qqnorm(google$ret_c)
+qqline(google$ret_c,col='red')
+```
+
+---
+
+class: middle,center
+
+![](pres_1_v1_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let drop the more extrem observation.
+
+---
+
+class: middle
+
+
+```r
+hist(google$ret_c[which(google$ret_c&gt;-0.68)],nclass = 100,
+     main="histogram of google stock return",xlab='return')
+abline(v=mean(google$ret_c[which(google$ret_c&gt;-0.68)],
+              na.rm=TRUE),col='red')
+```
+
+---
+
+class: middle
+
+![](pres_1_v1_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+
+
+```r
+shapiro.test(google$ret_c[which(google$ret_c&gt;-0.68)])
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  google$ret_c[which(google$ret_c &gt; -0.68)]
+## W = 0.90833, p-value &lt; 2.2e-16
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+
+```r
+qqnorm(google$ret_c[which(google$ret_c&gt;-0.68)])
+qqline(google$ret_c[which(google$ret_c&gt;-0.68)],col='red')
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+![](pres_1_v1_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+
+---
+
+class: middle
+
+## Extracting data from CRSP
+
+Let estimate the CAPM Beta of Google.
+
+What do we need?
+
+--
+
+
+* stock return
+
+* market return
+
+* risk free rate
+
+--
+
+`$$E(r_{it})=\alpha_i+\beta_i(rm_{t}-rf_{t})+\epsilon_{i,t}$$`
+
+---
+
+class: middle
+
+## Extracting data from CRSP (market index)
+
+&lt;img src="Capture_index_v1.png" alt="drawing" width="500"/&gt;
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP (market index)
+
+
+
+```r
+index_CRPS &lt;- read_csv("index_CRPS.csv")
+```
+
+```
+## Rows: 4594 Columns: 11
+## ── Column specification ───────────────────────────────────────────────────────────
+## Delimiter: ","
+## dbl (11): DATE, vwretd, vwretx, ewretd, ewretx, sprtrn, spindx, totval, totcnt,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP (market index)
+
+Import data in R
+
+
+```r
+index_CRPS$DATE&lt;-ymd(index_CRPS$DATE)
+```
+
+---
+
+class: middle
+
+## Extracting data from CRSP (market index)
+
+format data.
+
+
+```r
+index_CRPS_&lt;-index_CRPS %&gt;% select(DATE,vwretd) %&gt;% 
+  filter(DATE&gt;="2004-08-19") %&gt;% 
+  rename(date=DATE)
+```
+
+
+---
+
+class: middle
+
+## Extracting data from CRSP (market index)
+
+merge the data with google returns.
+
+
+```r
+mer_base&lt;-left_join(google,index_CRPS_)
+```
+
+```
+## Joining, by = "date"
+```
+
+drop omit values (NA)
+
+
+```r
+mer_base&lt;-mer_base %&gt;% na.omit()
+```
+
+
+---
+
+class: middle
+
+## Extracting data from Fama-French Portofolio and factors (risk free rate)
+
+&lt;img src="Capture_rf_1_v1.png" alt="drawing" width="500"/&gt;
+
+
+---
+
+class: middle
+
+## Extracting data from Fama-French Portofolio and factors (risk free rate)
+
+&lt;img src="Capture_rf_2_v1.png" alt="drawing" width="500"/&gt;
+
+
+---
+
+class: middle
+
+## Extracting data from Fama-French Portofolio and factors (risk free rate)
+
+Now, we can import the new data in R 
+
+
+```r
+risk_free_rate &lt;- read_csv("risk_free_rate.csv")
+```
+
+```
+## Rows: 4656 Columns: 6
+## ── Column specification ───────────────────────────────────────────────────────────
+## Delimiter: ","
+## dbl (6): date, mktrf, smb, hml, rf, umd
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+
+---
+
+class: middle
+
+## Extracting data from Fama-French Portofolio and factors (risk free rate)
+
+and prepare them to be merged with our estimation sample data.
+
+
+```r
+risk_free_rate &lt;- risk_free_rate %&gt;% select(date,rf) %&gt;% 
+  mutate(date=ymd(date)) %&gt;% 
+  filter(date&gt;="2004-08-19"&amp;date&lt;='2022-03-31')
+```
+
+---
+
+class: middle
+
+## Extracting data from Fama-French Portofolio and factors (risk free rate)
+
+Merge the data
+
+
+```r
+mer_base&lt;-left_join(mer_base,risk_free_rate)
+```
+
+```
+## Joining, by = "date"
+```
+
+---
+
+class: middle
+
+## Estimating MEDAF BETA
+
+Variables computation
+
+* risk premium
+
+* market risk premium
+
+
+---
+
+class: middle
+
+## Estimating MEDAF BETA
+
+
+
+```r
+mer_base&lt;-mer_base %&gt;% mutate(risp=RET-rf,
+                              markrisp=vwretd-rf)
+```
+
+
+---
+
+class: middle
+
+## Estimating MEDAF BETA
+
+Let limit us to a estimation over 130 cotation days.
+
+
+```r
+rega&lt;-lm(risp~markrisp,data=filter(mer_base,date&lt;=date[130]))
+summary(rega)
+```
+
+```
+## 
+## Call:
+## lm(formula = risp ~ markrisp, data = filter(mer_base, date &lt;= 
+##     date[130]))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.090092 -0.021006  0.000732  0.013994  0.154748 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept) 0.004790   0.002821   1.698   0.0919 .
+## markrisp    0.567737   0.451241   1.258   0.2106  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.03182 on 128 degrees of freedom
+## Multiple R-squared:  0.01222,	Adjusted R-squared:  0.004499 
+## F-statistic: 1.583 on 1 and 128 DF,  p-value: 0.2106
+```
+
+---
+
+class: middle
+
+If you want more about importing and managing data with R, you can watch the following video https://youtu.be/1CSE0mQVwAQ (31 minutes).
+
+
+---
+
+class: middle
+
+&lt;img src="sandwich.png" alt="drawing" width="500"/&gt;
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
